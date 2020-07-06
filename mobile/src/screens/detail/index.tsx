@@ -16,6 +16,7 @@ const Screen = () => {
   const handleNavigationBack = () => {
     navigation.goBack();
   };
+  
   return (
     <>
       <View style={styles.container}>

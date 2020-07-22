@@ -1,10 +1,15 @@
-import express from "express";
+import express from 'express';
+import cors from 'cors';
+import path from 'path';
+import routes from './routes';
 
+const port = 3333;
 const app = express();
 
-app.get("/users", (req, res) => {
-  console.log("badjoraz");
-  res.json(["badjoraz", "badjoraz"]);
-});
+app.use(cors());
+app.use(express.json());
+app.use(routes);
 
-app.listen(3333);
+app.use('/uploads', express.static(path.resolve(__dirname, '..', 'uploads')));
+
+app.listen(port);
